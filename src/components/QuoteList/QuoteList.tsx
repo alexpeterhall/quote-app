@@ -1,7 +1,8 @@
 import React from 'react'
 import { FirebaseContext } from '../../services/firebase'
+import Quote from './Quote/Quote'
 
-const Quote = () => {
+const QuoteList = () => {
   const Firebase = React.useContext(FirebaseContext)
   const [quoteList, setQuoteList] = React.useState({} as QuoteList)
 
@@ -17,17 +18,13 @@ const Quote = () => {
   //   return quoteList[Math.floor(quoteList.length * Math.random())]
   // }
 
-  // function formatQuote(quote: Quote): string {
-  //   return `${quote.quote} - ${quote.author} - #${quote.tags.join(' #')}`
-  // }
-
   return (
     <div>
       {Object.entries(quoteList).map(([key, value]) => (
-        <p key={key}>{`${value.quote} - ${value.author} #${value.tags}`}</p>
+        <Quote key={key} quote={value} />
       ))}
     </div>
   )
 }
 
-export default Quote
+export default QuoteList

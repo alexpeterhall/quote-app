@@ -1,7 +1,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import Quote from './components/QuoteList/Quote'
+import QuoteList from './components/QuoteList/QuoteList'
 import Firebase, { FirebaseContext } from './services/firebase'
 
 const MyFirebase = new Firebase()
@@ -9,7 +9,7 @@ const MyFirebase = new Firebase()
 function App() {
   return (
     <FirebaseContext.Provider value={MyFirebase}>
-      <Quote />
+      <QuoteList />
     </FirebaseContext.Provider>
   )
 
