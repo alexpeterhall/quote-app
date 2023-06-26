@@ -5,6 +5,7 @@ import Quote from './Quote/Quote'
 const QuoteList = () => {
   const Firebase = React.useContext(FirebaseContext)
   const [quoteList, setQuoteList] = React.useState({} as QuoteList)
+  const quoteEntries = Object.entries(quoteList)
 
   React.useEffect(() => {
     if (Firebase == null) throw new Error('Firebase Database context not found')
@@ -14,15 +15,21 @@ const QuoteList = () => {
     })()
   }, [Firebase])
 
-  // function getRandomQuote(): Quote {
-  //   return quoteList[Math.floor(quoteList.length * Math.random())]
-  // }
+  function getRandomQuote(): Quote {
+    if (quoteEntries.length == 0) {
+      return { quote: ' ', author: 'Loading...', tags: [] }
+    }
+    return quoteList[Math.floor(quoteEntries.length * Math.random())]
+  }
 
   return (
     <div>
-      {Object.entries(quoteList).map(([key, value]) => (
+      {
+        <Quote quote={getRandomQuote()} />
+        /* {quoteEntries.map(([key, value]) => (
         <Quote key={key} quote={value} />
-      ))}
+      ))} */
+      }
     </div>
   )
 }
