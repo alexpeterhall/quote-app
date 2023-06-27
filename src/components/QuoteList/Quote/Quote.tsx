@@ -1,5 +1,6 @@
 type QuoteProps = { quote: Quote }
-const Quote = ({ quote }: QuoteProps) => {
+
+export default function Quote({ quote }: QuoteProps) {
   function formatQuote(quote: Quote): string {
     if (quote.tags == null || quote.tags.length === 0) {
       return `${quote.quote} - ${quote.author}`
@@ -9,5 +10,3 @@ const Quote = ({ quote }: QuoteProps) => {
 
   return <div>{formatQuote(quote)}</div>
 }
-
-export default Quote
