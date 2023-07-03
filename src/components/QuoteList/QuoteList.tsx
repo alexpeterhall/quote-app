@@ -5,31 +5,41 @@ import Quote from './Quote/Quote'
 const QuoteList = () => {
   const Firebase = React.useContext(FirebaseContext)
   const [quoteList, setQuoteList] = React.useState({} as QuoteList)
-  const quoteEntries = Object.entries(quoteList)
+  const [currentQuote, setcurrentQuote] = React.useState({} as Quote)
+  const dataLoadComplete = React.useRef(false)
+  const firstRender = React.useRef(true)
 
   React.useEffect(() => {
     if (Firebase == null) throw new Error('Firebase Database context not found')
     ;(async () => {
       const data = await Firebase.getQuoteList()
       setQuoteList(data)
+      dataLoadComplete.current = true
     })()
   }, [Firebase])
 
-  function getRandomQuote(): Quote {
-    if (quoteEntries.length == 0) {
-      return { quote: ' ', author: 'Loading...', tags: [] }
+  React.useEffect(() => {
+    if (!dataLoadComplete.current) return
+    if (firstRender.current) {
+      firstRender.current = false
+      return
     }
-    return quoteList[Math.floor(quoteEntries.length * Math.random())]
-  }
+    setcurrentQuote(quoteList[Math.floor(Object.keys(quoteList).length * Math.random())])
+  }, [quoteList])
 
   return (
     <div>
-      {
-        <Quote quote={getRandomQuote()} />
-        /* {quoteEntries.map(([key, value]) => (
-        <Quote key={key} quote={value} />
-      ))} */
-      }
+      {<Quote quote={currentQuote} />}
+      <form
+        action=''
+        method='get'
+        onSubmit={(event) => {
+          event.preventDefault()
+          setcurrentQuote(quoteList[Math.floor(Object.keys(quoteList).length * Math.random())])
+        }}
+        data-cy='nextQuoteButton'>
+        <button>Next Quote</button>
+      </form>
     </div>
   )
 }
