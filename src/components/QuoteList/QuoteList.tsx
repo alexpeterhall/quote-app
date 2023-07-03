@@ -1,6 +1,7 @@
 import React from 'react'
 import { FirebaseContext } from '../../services/firebase'
 import Quote from './Quote/Quote'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 const QuoteList = () => {
   const Firebase = React.useContext(FirebaseContext)
@@ -28,7 +29,7 @@ const QuoteList = () => {
   }, [quoteList])
 
   if (Object.keys(currentQuote).length === 0) {
-    return <p>Loading...</p>
+    return <LoadingSpinner />
   }
 
   return (
