@@ -16,7 +16,7 @@ export default function Quote({ quote }: QuoteProps) {
           <p data-cy='author'>{`${quote.author}`}</p>
           <p data-cy='tagList'>
             {quote.tags.map((tag) => {
-              return <a key={`${tag}`} href='#' data-cy='tag'>{`#${tag} `}</a>
+              return <span key={`${tag}`} data-cy='tag'>{`#${tag} `}</span>
             })}
           </p>
         </div>
