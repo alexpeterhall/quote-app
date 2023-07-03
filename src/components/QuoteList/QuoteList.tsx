@@ -27,6 +27,10 @@ const QuoteList = () => {
     setcurrentQuote(quoteList[Math.floor(Object.keys(quoteList).length * Math.random())])
   }, [quoteList])
 
+  if (Object.keys(currentQuote).length === 0) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div>
       {<Quote quote={currentQuote} />}
