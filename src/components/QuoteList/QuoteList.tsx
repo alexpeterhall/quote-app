@@ -8,7 +8,6 @@ const QuoteList = () => {
   const [quoteList, setQuoteList] = React.useState({} as QuoteList)
   const [currentQuote, setcurrentQuote] = React.useState({} as Quote)
   const dataLoadComplete = React.useRef(false)
-  const firstRender = React.useRef(true)
 
   React.useEffect(() => {
     if (Firebase == null) throw new Error('Firebase Database context not found')
@@ -21,10 +20,6 @@ const QuoteList = () => {
 
   React.useEffect(() => {
     if (!dataLoadComplete.current) return
-    if (firstRender.current) {
-      firstRender.current = false
-      return
-    }
     setcurrentQuote(quoteList[Math.floor(Object.keys(quoteList).length * Math.random())])
   }, [quoteList])
 
