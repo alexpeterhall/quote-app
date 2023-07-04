@@ -4,18 +4,18 @@ export default function Quote({ quote }: QuoteProps) {
   if (quote.tags == null || quote.tags.length === 0) {
     return (
       <div>
-        <p data-cy='quote'>{`${quote.quote}`}</p>
-        <p data-cy='author'>{`${quote.author}`}</p>
+        <p data-qa='quote'>{`${quote.quote}`}</p>
+        <p data-qa='author'>{`${quote.author}`}</p>
       </div>
     )
   } else {
     return (
       <div>
-        <p data-cy='quote'>{`${quote.quote}`}</p>
-        <p data-cy='author'>{`${quote.author}`}</p>
-        <p data-cy='tagList'>
+        <p data-qa='quote'>{`${quote.quote}`}</p>
+        <p data-qa='author'>{`${quote.author}`}</p>
+        <p data-qa='tagList'>
           {quote.tags.map((tag) => {
-            return <a key={`${tag}`} href='#' data-cy='tag'>{`#${tag} `}</a>
+            return <a key={`${tag}`} href='#' data-qa='tag'>{`#${tag} `}</a>
           })}
         </p>
       </div>
