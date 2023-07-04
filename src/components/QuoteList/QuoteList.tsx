@@ -28,7 +28,7 @@ const QuoteList = () => {
   }
 
   return (
-    <div>
+    <div data-cy='quoteList'>
       {<Quote quote={currentQuote} />}
       <form
         action=''
