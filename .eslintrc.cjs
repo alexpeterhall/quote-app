@@ -7,5 +7,6 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
     '@typescript-eslint/no-namespace': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 }
