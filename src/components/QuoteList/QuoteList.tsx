@@ -2,6 +2,7 @@ import React from 'react'
 import { FirebaseContext } from '../../services/firebase'
 import Quote from './Quote/Quote'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import Button from '../Button/Button'
 
 const QuoteList = () => {
   const Firebase = React.useContext(FirebaseContext)
@@ -27,20 +28,20 @@ const QuoteList = () => {
     return <LoadingSpinner />
   }
 
+  function getRandomQuote() {
+    return quoteList[Math.floor(Object.keys(quoteList).length * Math.random())]
+  }
+
   return (
-    <div data-cy='quoteList'>
-      {<Quote quote={currentQuote} />}
-      <form
-        action=''
-        method='get'
-        onSubmit={(event) => {
-          event.preventDefault()
-          setcurrentQuote(quoteList[Math.floor(Object.keys(quoteList).length * Math.random())])
-        }}
-        data-cy='nextQuoteButton'>
-        <button>Next Quote</button>
-      </form>
-    </div>
+    <>
+      <Quote quote={currentQuote} />
+      <Button
+        clickHandler={() => {
+          setcurrentQuote(getRandomQuote())
+        }}>
+        Next Quote
+      </Button>
+    </>
   )
 }
 
