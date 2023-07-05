@@ -1,8 +1,6 @@
 import TagList from '../../TagList/TagList'
 
-type QuoteProps = { quote: Quote }
-
-export default function Quote({ quote }: QuoteProps) {
+export default function Quote({ quote }: { quote: Quote }) {
   if (quote.tags == null || quote.tags.length === 0) {
     return (
       <div>

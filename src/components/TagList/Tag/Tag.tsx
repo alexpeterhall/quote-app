@@ -1,5 +1,3 @@
-type TagProps = { tag: string }
-
-export default function Tag({ tag }: TagProps) {
+export default function Tag({ tag }: { tag: string }) {
   return <a href={`${tag}`} data-qa='tag'>{`#${tag} `}</a>
 }

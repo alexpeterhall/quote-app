@@ -1,8 +1,6 @@
 import Tag from './Tag/Tag'
 
-type TagListProps = { tags: string[] }
-
-export default function TagList({ tags }: TagListProps) {
+export default function TagList({ tags }: { tags: string[] }) {
   return (
     <p data-qa='tagList'>
       {tags.map((tag) => (
