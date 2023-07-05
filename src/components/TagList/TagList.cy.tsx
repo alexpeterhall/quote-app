@@ -1,11 +1,11 @@
 /// <reference types="Cypress" />
-import Tag from './Tag'
+import TagList from './TagList'
 
 const testTags = ['tag1', 'tag2', 'tag3']
 
 describe('The Tag component', () => {
   beforeEach(() => {
-    cy.mount(<Tag tags={testTags} />)
+    cy.mount(<TagList tags={testTags} />)
     cy.get(`[data-qa=tagList]`).as('tagList')
   })
   it('should render the correct number of tags', () => {

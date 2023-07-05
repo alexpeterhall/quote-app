@@ -1,4 +1,4 @@
-import Tag from '../../Tag/Tag'
+import TagList from '../../TagList/TagList'
 
 type QuoteProps = { quote: Quote }
 
@@ -15,7 +15,7 @@ export default function Quote({ quote }: QuoteProps) {
       <div>
         <p data-qa='quote'>{`${quote.quote}`}</p>
         <p data-qa='author'>{`${quote.author}`}</p>
-        {<Tag tags={quote.tags} />}
+        {<TagList tags={quote.tags} />}
       </div>
     )
   }
