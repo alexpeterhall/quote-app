@@ -13,14 +13,8 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import '../../src/setup'
-
-// Import commands.js using ES2015 syntax:
 import './commands'
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
-
+import '../../src/setup'
 import { mount } from 'cypress/react18'
 
 // Augment the Cypress namespace to include type definitions for
@@ -36,6 +30,3 @@ declare global {
 }
 
 Cypress.Commands.add('mount', mount)
-
-// Example use:
-// cy.mount(<MyComponent />)
