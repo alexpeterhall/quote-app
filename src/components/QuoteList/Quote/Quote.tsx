@@ -1,3 +1,5 @@
+import Tag from '../../Tag/Tag'
+
 type QuoteProps = { quote: Quote }
 
 export default function Quote({ quote }: QuoteProps) {
@@ -13,11 +15,7 @@ export default function Quote({ quote }: QuoteProps) {
       <div>
         <p data-qa='quote'>{`${quote.quote}`}</p>
         <p data-qa='author'>{`${quote.author}`}</p>
-        <p data-qa='tagList'>
-          {quote.tags.map((tag) => {
-            return <a key={`${tag}`} href='#' data-qa='tag'>{`#${tag} `}</a>
-          })}
-        </p>
+        {<Tag tags={quote.tags} />}
       </div>
     )
   }
