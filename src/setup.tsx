@@ -1,14 +1,12 @@
 import './App.css'
 import './index.css'
-import QuoteList from './components/QuoteList/QuoteList.tsx'
-import Firebase, { FirebaseContext } from './services/firebase/index.ts'
-
-export const MyFirebase = new Firebase()
+import QuoteList from './components/QuoteList/QuoteList'
+import FirebaseProvider from './services/firebase/FirebaseProvider'
 
 export const createApp = () => {
   return (
-    <FirebaseContext.Provider value={MyFirebase}>
+    <FirebaseProvider>
       <QuoteList />
-    </FirebaseContext.Provider>
+    </FirebaseProvider>
   )
 }

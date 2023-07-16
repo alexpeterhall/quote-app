@@ -1,7 +1,3 @@
-// import { DatabaseReference } from "firebase/database"
-
-interface MyFirebase {
+interface FirebaseInstance {
   getQuoteList: () => Promise<QuoteList>
-  // getRandomQuote: () => Promise<Quote>
-  // formatQuote: (quote:Quote) => Promise<string>
 }

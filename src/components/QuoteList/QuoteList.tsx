@@ -1,5 +1,5 @@
 import React from 'react'
-import { FirebaseContext } from '../../services/firebase'
+import { FirebaseContext } from '../../services/firebase/FirebaseProvider'
 import Quote from './Quote/Quote'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import Button from '../Button/Button'

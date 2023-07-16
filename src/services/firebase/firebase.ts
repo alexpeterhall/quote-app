@@ -3,7 +3,7 @@ import { get, getDatabase, ref } from 'firebase/database'
 
 const config = { databaseURL: 'https://quotes-20ebd-default-rtdb.firebaseio.com' }
 
-class Firebase implements MyFirebase {
+class Firebase implements FirebaseInstance {
   private app
   private database
   constructor() {
