@@ -12,6 +12,9 @@ node_modules
 /.pnp
 .pnp.js
 
+# firebase
+database.rules.json
+
 # testing
 /coverage
 cypress/screenshots
