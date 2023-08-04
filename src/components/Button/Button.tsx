@@ -1,16 +1,9 @@
-type ButtonProps = { clickHandler: () => void; children: string }
+type ButtonProps = { handleClick: () => void; children: string }
 
-export default function Button({ clickHandler, children }: ButtonProps) {
+export default function Button({ handleClick, children }: ButtonProps) {
   return (
-    <form
-      action=''
-      method='get'
-      onSubmit={(event) => {
-        event.preventDefault()
-        clickHandler()
-      }}
-      data-qa={`${children.split(' ').join('')}Button`}>
-      <button>{children}</button>
-    </form>
+    <button onClick={handleClick} data-qa={`${children.split(' ').join('')}Button`}>
+      {children}
+    </button>
   )
 }

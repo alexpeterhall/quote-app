@@ -36,7 +36,7 @@ const QuoteList = () => {
     <>
       <Quote quote={currentQuote} />
       <Button
-        clickHandler={() => {
+        handleClick={() => {
           setcurrentQuote(getRandomQuote())
         }}>
         Next Quote
