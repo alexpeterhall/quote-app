@@ -10,6 +10,10 @@ const QuoteList = () => {
   const [currentQuote, setcurrentQuote] = React.useState({} as Quote)
   const dataLoadComplete = React.useRef(false)
 
+  const getRandomQuote = React.useCallback(() => {
+    return quoteList[Math.floor(Object.keys(quoteList).length * Math.random())]
+  }, [quoteList])
+
   React.useEffect(() => {
     if (Firebase == null) throw new Error('Firebase Database context not found')
     ;(async () => {
@@ -21,15 +25,11 @@ const QuoteList = () => {
 
   React.useEffect(() => {
     if (!dataLoadComplete.current) return
-    setcurrentQuote(quoteList[Math.floor(Object.keys(quoteList).length * Math.random())])
-  }, [quoteList])
+    setcurrentQuote(getRandomQuote())
+  }, [getRandomQuote])
 
   if (Object.keys(currentQuote).length === 0) {
     return <LoadingSpinner />
-  }
-
-  function getRandomQuote() {
-    return quoteList[Math.floor(Object.keys(quoteList).length * Math.random())]
   }
 
   return (
