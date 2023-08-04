@@ -7,7 +7,7 @@ import Button from '../Button/Button'
 const QuoteList = () => {
   const Firebase = React.useContext(FirebaseContext)
   const [quoteList, setQuoteList] = React.useState({} as QuoteList)
-  const [currentQuote, setcurrentQuote] = React.useState({} as Quote)
+  const [currentQuote, setCurrentQuote] = React.useState({} as Quote)
   const dataLoadComplete = React.useRef(false)
 
   const getRandomQuote = React.useCallback(() => {
@@ -25,7 +25,7 @@ const QuoteList = () => {
 
   React.useEffect(() => {
     if (!dataLoadComplete.current) return
-    setcurrentQuote(getRandomQuote())
+    setCurrentQuote(getRandomQuote())
   }, [getRandomQuote])
 
   if (Object.keys(currentQuote).length === 0) {
@@ -37,7 +37,7 @@ const QuoteList = () => {
       <Quote quote={currentQuote} />
       <Button
         handleClick={() => {
-          setcurrentQuote(getRandomQuote())
+          setCurrentQuote(getRandomQuote())
         }}>
         Next Quote
       </Button>
